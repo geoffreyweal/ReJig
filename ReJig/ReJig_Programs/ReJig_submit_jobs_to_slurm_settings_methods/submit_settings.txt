@@ -1,0 +1,8 @@
+Max_jobs_in_queue_at_any_one_time = 5000
+Max_jobs_pending_in_queue_from_ReJig_mass_submit = 10
+Max_jobs_running_in_queue_from_ReJig_mass_submit = 4989
+time_to_wait_before_next_submission = 20.0
+time_to_wait_max_queue = 60.0
+time_to_wait_before_next_submission_due_to_temp_submission_issue = 10.0
+number_of_consecutive_error_before_exitting = 20
+time_to_wait_before_next_submission_due_to_not_waiting_between_submissions = 60.0
