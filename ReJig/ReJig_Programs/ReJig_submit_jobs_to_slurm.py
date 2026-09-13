@@ -44,7 +44,7 @@ def Run_method():
     '''
 
     print('##################################################')
-    print('Will submit your ReJig submit.sl scripts to slurm.')
+    print('Will submit your rejig submit.sl scripts to slurm.')
     print('##################################################')
 
     # Second, read the settings from the settings file. 

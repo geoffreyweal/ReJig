@@ -7,10 +7,10 @@ import os, shutil
 from tqdm import tqdm
 from ase.io import read, write
 
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import did_gaussian_job_complete, did_gaussian_opt_job_complete
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import gaussian_temp_files_to_remove
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import remove_slurm_output_files
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_job_complete, did_gaussian_opt_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import gaussian_temp_files_to_remove
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import remove_slurm_output_files
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
 
 class CLICommand:
     """Will reset jobs that did not complete. Only run this program if you know all your other jobs have finished, as this program will break and also reset any jobs that are still running.

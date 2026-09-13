@@ -204,7 +204,7 @@ In the third section, gather all the paths of the crystal files you want to remo
 
 In the fourth section, remove any existing files that were produced during previous ReJig runs. You can leave this as is, or modify it as you would like.  An example of the code for ``PART IV`` is shown below:
 
-```python title="Part IV of Run_ReJig.py: Remove existing files from previous ReJig runs" show_lines="62:70" linenums="62"
+```python title="Part IV of Run_ReJig.py: Remove existing files from previous ReJig runs" show_lines="62:80" linenums="62"
 --8<-- "docs/Files/Using_The_ReJig_Program/Run_ReJig.py"
 ```
 
@@ -212,7 +212,7 @@ In the fourth section, remove any existing files that were produced during previ
 
 In the fifth section, the ReJig program will create all the Gaussian/ORCA and slurm files for performing geometric optimisation calculations. You can leave this as is, or modify it as you would like. An example of the code for ``PART V`` is shown below:
 
-```python title="Part V of Run_ReJig.py: Run the ReJig program" show_lines="70:95" linenums="70"
+```python title="Part V of Run_ReJig.py: Run the ReJig program" show_lines="81:104" linenums="81"
 --8<-- "docs/Files/Using_The_ReJig_Program/Run_ReJig.py"
 ```
 

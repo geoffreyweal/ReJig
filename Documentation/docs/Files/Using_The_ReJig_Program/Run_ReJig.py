@@ -62,34 +62,44 @@ for crystal_database_filename in crystal_database_filenames:
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PART IV: Reset ReJig files from previous ReJig runs.
 
-# Eighth, remove the folder that we will place crystals in that we will remove sidegroups from.
-crystal_database_with_removed_sidegroups_folder_name = f'rejigged_{crystal_database_dirname}'
-if os.path.exists(crystal_database_with_removed_sidegroups_folder_name):
-	shutil.rmtree(crystal_database_with_removed_sidegroups_folder_name)
+# NOTE: Everything below is inside "if __name__ == '__main__':" on purpose.
+#       ReJig uses multiprocessing, and on macOS (and Windows) Python starts worker
+#       processes with the "spawn" method, which re-imports this script inside every
+#       worker. Without this guard each worker would re-run the folder deletion below
+#       while the main run is still writing to it, and Python would stop the run with
+#       "An attempt has been made to start a new process before the current process has
+#       finished its bootstrapping phase". On Linux the default is "fork", so it works
+#       either way there - but keep the guard so this script runs on every platform.
+if __name__ == '__main__':
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# PART V: Run the ReJig program on the crystals you want to rejig.
+	# Eighth, remove the folder that we will place crystals in that we will remove sidegroups from.
+	crystal_database_with_removed_sidegroups_folder_name = f'rejigged_{crystal_database_dirname}'
+	if os.path.exists(crystal_database_with_removed_sidegroups_folder_name):
+		shutil.rmtree(crystal_database_with_removed_sidegroups_folder_name)
 
-# Ninth, obtain the total number of crystal you want to process with the RSGC program. 
-total_no_of_crystals = str(len(filepath_names))
+	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	# PART V: Run the ReJig program on the crystals you want to rejig.
 
-# Tenth, initialise a counter to record the number of crystals that you want to rejig. 
-rejig_counter = 0
+	# Ninth, obtain the total number of crystal you want to process with the RSGC program. 
+	total_no_of_crystals = str(len(filepath_names))
 
-# Eleventh: For each crystal in the filepath_names list. 
-for counter, filepath in enumerate(filepath_names, start=0):
+	# Tenth, initialise a counter to record the number of crystals that you want to rejig. 
+	rejig_counter = 0
 
-	# 11.1: Print to screen how many crystals have been processed by the RSGC program. 
-	print('Running crystal: '+str(counter)+' out of '+total_no_of_crystals)
+	# Eleventh: For each crystal in the filepath_names list. 
+	for counter, filepath in enumerate(filepath_names, start=0):
 
-	# 11.2: Run the ReJig program. 
-	did_make_rejig_files = ReJig_Atoms(filepath, calc_parameters=calc_parameters, submission_information=submission_information)
+		# 11.1: Print to screen how many crystals have been processed by the RSGC program. 
+		print('Running crystal: '+str(counter)+' out of '+total_no_of_crystals)
 
-	# 11.3: Count if the crystal (given by filepath) has been rejigged. 
-	if did_make_rejig_files:
-		rejig_counter += 1
+		# 11.2: Run the ReJig program. 
+		did_make_rejig_files = ReJig_Atoms(filepath, calc_parameters=calc_parameters, submission_information=submission_information)
 
-# Twelfth, print the num 
-print(f'Number of crystals to rejig: {rejig_counter}')
+		# 11.3: Count if the crystal (given by filepath) has been rejigged. 
+		if did_make_rejig_files:
+			rejig_counter += 1
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	# Twelfth, print the num 
+	print(f'Number of crystals to rejig: {rejig_counter}')
+
+	# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

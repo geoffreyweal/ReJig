@@ -82,7 +82,7 @@ def Run_method(rejig_dirpath='rejigged_crystals', process_all_crystals=False):
 	# Fourth, get the path to the folder containing all the trajectory files
 	save_reconstructed_molecules_trajectory_dirpath = rejig_dirpath + '_reconstructed_molecules_trajectory'
 
-	# Fifth, remove all previous runs of the ``ReJig reconstruct`` module.
+	# Fifth, remove all previous runs of the ``rejig reconstruct`` module.
 	remove_folder(save_reconstructed_crystals_dirpath)
 	remove_folder(save_reconstructed_molecules_dirpath)
 	remove_folder(save_reconstructed_molecules_trajectory_dirpath)

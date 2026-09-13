@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 def get_version_number():
-  path_to_written_version = 'rejig/__init__.py'
+  path_to_written_version = 'ReJig/__init__.py'
   with open(path_to_written_version) as initPY:
     for line in initPY:
       if line.startswith('__version__'):
@@ -27,13 +27,13 @@ def find_packages(root):
         rel_dirname = os.path.relpath(dirname)
         if not rel_dirname in packages:
           packages.append(rel_dirname)
-  return sorted(packages)
+  return sorted(package.replace(os.sep, '.') for package in packages)
 
 def find_scripts():
   scripts = []
   scripts_folders = []
   for scripts_folder in scripts_folders:
-    for root, dirs, files in os.walk('rejig/'+scripts_folder, topdown=False):
+    for root, dirs, files in os.walk('ReJig/'+scripts_folder, topdown=False):
       for file in files:
         if file.endswith('.py') and not 'Main' in file:
           filepath = os.path.relpath(os.path.join(root, file))
@@ -42,8 +42,9 @@ def find_scripts():
   return sorted(scripts)
 
 setup(name='ReJig',
-      packages=find_packages(root='rejig'),
-      scripts=['bin/rejig']+find_scripts(),
+      packages=find_packages(root='ReJig'),
+      entry_points={'console_scripts': ['rejig=ReJig.cli.main:main']},
+      scripts=find_scripts(),
       version=get_version_number(),
       description="This program is designed to allow added or modified atoms in a crystal to relax about the molecule they are attached to.",
       long_description=get_long_description(),
@@ -54,7 +55,7 @@ setup(name='ReJig',
       license='GNU AFFERO GENERAL PUBLIC LICENSE',
       zip_safe=False,
       keywords = ['victoria-university', 'victoria-university-of-wellington', 'university-of-wellington', 'wellington-university', 'atomic-simulation-environment', 'cambridge-structural-database'],
-      install_requires=['numpy', 'ase>=3.19.0', 'packaging', 'networkx', 'tqdm'],
+      install_requires=['numpy', 'ase>=3.19.0', 'packaging', 'tqdm', 'SUMELF @ git+https://github.com/geoffreyweal/SUMELF.git'],
       classifiers=[
         'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         'Intended Audience :: Science/Research',      # Define that your audience are developers

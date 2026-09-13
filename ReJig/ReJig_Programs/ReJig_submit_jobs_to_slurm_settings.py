@@ -15,7 +15,7 @@ submit_settings_name = 'ReJig_submit_jobs_to_slurm_settings_methods/submit_setti
 path_to_settings_txt_file = this_scripts_path+'/'+submit_settings_name
 
 class CLICommand:
-    """Change the settings for how slurm jobs are submitted using the `ReJig submit` module.
+    """Change the settings for how slurm jobs are submitted using the `rejig submit` module.
     """
 
     @staticmethod

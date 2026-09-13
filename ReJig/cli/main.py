@@ -19,7 +19,7 @@ commands = [
     ('reconstruct',     'ReJig.Reconstruct.Reconstruct')
 ]
 
-def main(prog='ReJig', description='ReJig command line tool.',version=__version__, commands=commands, hook=None, args=None):
+def main(prog='rejig', description='ReJig command line tool.',version=__version__, commands=commands, hook=None, args=None):
     parser = argparse.ArgumentParser(prog=prog,description=description,formatter_class=Formatter)
     parser.add_argument('--version', action='version',version='%(prog)s-{}'.format(version))
     parser.add_argument('-T', '--traceback', action='store_true')

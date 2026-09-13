@@ -35,7 +35,7 @@ Sub-commands:
   {help,submit,submit_settings,did_complete,reset,tidy,reconstruct}
     help                Help for sub-command.
     submit              Submit ReJig geometric optimisation jobs to slurm.
-    submit_settings     Change the settings for how slurm jobs are submitted using the `ReJig submit` module.
+    submit_settings     Change the settings for how slurm jobs are submitted using the `rejig submit` module.
     did_complete        Will determine which geometric optimisation jobs have completed and which ones have not.
     reset               Will reset jobs that did not complete. Only run this program if you know all your other jobs have finished, as this program will break and also reset any jobs that are still running.
     tidy                Will tidy up your data folder and get rid of unnecessary files, particularly those very large files.
@@ -55,7 +55,7 @@ To use this module, change into the directory containing your ``ReJig`` files (i
 cd rejigged_crystals
 
 # Submit all your jobs in the rejigged_crystals` folder to slurm. 
-ReJig submit
+rejig submit
 ```
 
 !!! note
@@ -78,7 +78,7 @@ To use this module, change into the directory containing your ``ReJig`` files (i
 cd rejigged_crystals
 
 # Run the `did_complete` module.
-ReJig did_complete
+rejig did_complete
 ```
 
 ## The ``reset`` module
@@ -94,7 +94,7 @@ To use this module, change into the directory containing your ``ReJig`` files (i
 cd rejigged_crystals
 
 # Run the `did_complete` module.
-ReJig reset
+rejig reset
 ```
 
 !!! warning
@@ -114,5 +114,5 @@ To use this module, change into the directory containing your ``ReJig`` files (i
 cd rejigged_crystals
 
 # Run the `did_complete` module.
-ReJig tidy
+rejig tidy
 ```
