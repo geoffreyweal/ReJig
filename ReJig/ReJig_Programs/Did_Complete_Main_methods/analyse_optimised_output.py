@@ -4,8 +4,8 @@ analyse_RE_output.py, Geoffrey Weal, 29/12/22
 This method is designed to check if a RE Gaussian job has completed or not.
 '''
 import os
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import did_gaussian_opt_job_complete
-from ReJig.ReJig_Programs.shared_general_methods.shared_orca_methods     import did_orca_opt_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_opt_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import did_orca_opt_job_complete
 
 def analyse_optimised_output(software_type, path):
     """

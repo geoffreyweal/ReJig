@@ -1,7 +1,7 @@
 # The information about the ReJig program
 
 __name__    = 'ReJig'
-__version__ = '0.0.1'
+__version__ = '0.1.0'
 __author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
 
 import sys
@@ -78,48 +78,7 @@ if version.parse(ase.__version__) < version.parse(ase_version_minimum):
 	raise ImportError(toString)
 
 # ------------------------------------------------------------------------------------------------------------------------
-
-scipy_spec = find_spec("scipy")
-scipy_found = (scipy_spec is not None)
-if not scipy_found:
-	toString = ''
-	toString += '\n'
-	toString += '================================================'+'\n'
-	toString += 'This is the ReJig Crystals (ReJig) Program'+'\n'
-	toString += 'Version: '+str(__version__)+'\n'
-	toString += '\n'
-	toString += 'The ReJig Crystals (ReJig) Program requires the "scipy" program.'+'\n'
-	toString += '\n'
-	toString += 'Install scipy by typing the following into your terminal\n'
-	toString += '\n'
-	toString += 'pip3 install --user --upgrade scipy\n'
-	toString += '\n'
-	toString += 'This program will exit before beginning'+'\n'
-	toString += '================================================'+'\n'
-	raise ImportError(toString)	
-
 # ------------------------------------------------------------------------------------------------------------------------
-
-networkx_spec = find_spec("networkx")
-networkx_found = (networkx_spec is not None)
-if not networkx_found:
-	toString = ''
-	toString += '\n'
-	toString += '================================================'+'\n'
-	toString += 'This is the ReJig Crystals (ReJig) Program'+'\n'
-	toString += 'Version: '+str(__version__)+'\n'
-	toString += '\n'
-	toString += 'The ReJig Crystals (ReJig) Program requires the "networkx" program.'+'\n'
-	toString += '\n'
-	toString += 'Install networkx through pip by following the instruction in https://github.com/geoffreyweal/ReJig'+'\n'
-	toString += 'These instructions will ask you to install networkx by typing the following into your terminal\n'
-	toString += '\n'
-	toString += 'pip3 install --user --upgrade networkx\n'
-	toString += '\n'
-	toString += 'This program will exit before beginning'+'\n'
-	toString += '================================================'+'\n'
-	raise ImportError(toString)	
-
 # ------------------------------------------------------------------------------------------------------------------------
 
 packaging_spec = find_spec("packaging")
@@ -174,6 +133,6 @@ __doc__ = 'See https://github.com/geoffreyweal/ReJig for the documentation on th
 from ReJig.ReJig_Atoms.ReJig_Atoms import ReJig_Atoms
 # ================================================================================================
 
-__all__ = [ReJig_Atoms,]
+__all__ = ['ReJig_Atoms']
 
 # ------------------------------------------------------------------------------------------------------------------------

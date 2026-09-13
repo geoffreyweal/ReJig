@@ -6,9 +6,9 @@ This script is designed to write the ORCA files and submit.sl files required for
 from copy                                                                     import deepcopy
 from SUMELF                                                                   import make_folder
 from SUMELF                                                                   import check_molecule_against_file
-from ECCP.ECCP.write_molecules_to_disk_methods.write_methods.orca_modified_RE import write_orca_in_RE
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                 import change_folder_name_components, convert_dict_for_bash_input
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                 import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
+from SUMELF import write_orca_in_RE
+from SUMELF import change_folder_name_components, convert_dict_for_bash_input
+from SUMELF import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
 
 def write_RE_orca_files(molecule, molecule_graph, molecule_name, SolventsList, orca_jobs_path, calc_parameters_for_REs, submission_information_for_REs):
 	"""

@@ -3,8 +3,8 @@ Geoffrey Weal, ReJig_submit_orca_jobs_to_slurm.py, 15/6/2023
 
 This program contains methods for submitting ORCA jobs to slurm if appropriate to do so.
 '''
-from ReJig.ReJig_Programs.shared_general_methods.shared_orca_methods import did_orca_opt_job_complete
-#from ReJig.ReJig_Programs.shared_general_methods.shared_orca_methods import did_orca_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import did_orca_opt_job_complete
+#from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import did_orca_job_complete
 
 def general_orca_submission(filenames):
     """

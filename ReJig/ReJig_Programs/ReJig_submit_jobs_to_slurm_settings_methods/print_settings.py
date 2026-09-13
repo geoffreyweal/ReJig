@@ -1,13 +1,13 @@
 """
 print_settings.py, Geoffrey Weal, 2/5/24
 
-This method will print the current settings of ths `ReJig submit` module.
+This method will print the current settings of ths `rejig submit` module.
 """
 import os
 
 def print_settings(path_to_settings_txt_file):
     """
-    This method will print the current settings of ths `ReJig submit` module.
+    This method will print the current settings of ths `rejig submit` module.
 
     This works by printing the contents of the path_to_settings_txt_file file
     """

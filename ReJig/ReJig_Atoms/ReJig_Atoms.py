@@ -204,7 +204,10 @@ def ReJig_Atoms(filepath, calc_parameters, submission_information, rejig_neighbo
 		if   calculation_software.lower() == 'gaussian':
 			write_gaussian_optimisation_files(molecule, molecule_graph, molecule_name_for_file, rejig_molecules_directory, calc_parameters, submission_information)
 		elif calculation_software.lower() == 'orca':
-			write_orca_optimisation_files    (molecule, molecule_graph, molecule_name_for_file, rejig_molecules_directory, calc_parameters, submission_information)
+			# ORCA support is not implemented yet.
+			raise NotImplementedError(
+				"ORCA is not implemented yet in ReJig. Set 'calc_software' to 'Gaussian' in your calc_parameters."
+			)
 		else:
 			raise Exception("Error: calc_parameters['calc_software'] needs to be either Gaussian or ORCA. calc_parameters['calc_software'] = "+str(calc_parameters['calc_software']))
 

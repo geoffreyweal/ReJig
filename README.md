@@ -15,7 +15,9 @@ This program is designed to allow added or modified atoms in a crystal to relax 
 
 ## Installation
 
-It is recommended to read the installation page before using the ReJig program. See [Installation: Setting Up ReJig and Pre-Requisites Packages](https://geoffreyweal.github.io/ReJig/Installation) for more information. Note that you can install ReJig through ``pip3`` and ``conda``. 
+It is recommended to read the installation page before using the ReJig program. See [Installation: Setting Up ReJig and Pre-Requisites Packages](https://geoffreyweal.github.io/ReJig/Installation) for more information. Note that ReJig is not published to PyPI or conda; install it from GitHub with ``pip3 install --upgrade --user git+https://github.com/geoffreyweal/ReJig.git``. 
+
+**ReJig requires the [ECCP](https://github.com/geoffreyweal/ECCP) program to be installed, not just importable.** As well as importing from ``ECCP``, the slurm submission scripts that ReJig writes call helper scripts that ECCP installs onto your ``PATH`` (``submit_slurm_job.py`` and ``get_freq_RE_ORCA_input_file.py``, which live in ``ECCP/ECCP/Subsidiary_Programs``). Installing ReJig with the command above pulls ECCP in automatically and puts those scripts on your ``PATH``. If you install ReJig some other way, make sure ECCP is installed into the same environment, or your ReJig slurm jobs will fail with "command not found".
 
 ## Guide To Using ReJig
 
@@ -25,7 +27,7 @@ The ReJig program is one in a series of programs that are designed to be used in
 
 The ReJig program is used as part of a grand scheme for calculating the excited-state electronic properties of molecules in a crystal. This includes simulations of exciton and charge diffusion through crystal structures, in particular for organic molecules (but not limited to them). This scheme is shown below, along with where the ReJig program is used in this scheme. 
 
-<img alt="Schematic of Grand Scheme" src="Documentation/docs/Images/Grand_Scheme/Grand_Scheme.png" />
+<img alt="Schematic of Grand Scheme" src="Documentation/docs/Shared_Images/Grand_Scheme/Grand_Scheme.png" />
 
 ## Websites and Github Repositories for All Associated Programs
 

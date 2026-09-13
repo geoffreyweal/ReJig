@@ -5,10 +5,10 @@ This program is designed to tidy up your data folder and get rid of unnecessary 
 '''
 import os, shutil
 
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import did_gaussian_job_complete
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import gaussian_temp_files_to_remove
-from ReJig.ReJig_Programs.shared_general_methods.shared_gaussian_methods import remove_slurm_output_files
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import gaussian_temp_files_to_remove
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import remove_slurm_output_files
 
 class CLICommand:
     """Will tidy up your data folder and get rid of unnecessary files, particularly those very large files.
