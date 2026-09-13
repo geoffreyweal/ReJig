@@ -2,7 +2,7 @@
 
 __name__    = 'ReJig'
 __version__ = '0.1.0'
-__author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
+__author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Assoc. Prof. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
 
 import sys
 from importlib.util import find_spec
