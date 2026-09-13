@@ -6,7 +6,15 @@ In this article, we will look at how to install the ReJig program and all requis
 
 ### Python 3 and ``pip3``
 
-This program is designed to work with **Python 3**. This program can only be used with Python 3.7. This is because the CSD Python API can only run using Python 3.7. 
+This program is designed to work with **Python 3**, and is tested on **Python 3.11 and newer**.
+
+!!! note
+
+	Earlier versions of this page said that this program required Python 3.7, because the CSD Python API required it. Neither half of that is still true.
+
+	The CSD Python API is supported on Python 3.11 and 3.12. The "3.7" in ``csd-python-api 3.7.x`` is the version of the API itself, not the version of Python it runs on.
+
+	In any case, ReJig does not use the CSD Python API at all. Only [ACSD](https://geoffreyweal.github.io/ACSD) reads directly from the CSD. 
 
 To find out if you have Python 3 on your computer and what version you have, type into the terminal
 
@@ -18,7 +26,7 @@ If you have Python 3 on your computer, you will get the version of python you ha
 
 ```bash
 user@computer_name path % python --version
-Python 3.7.9
+Python 3.11.15
 ```
 
 If you have Python 3, you may have ``pip`` installed on your computer as well. ``pip`` is a python package installation tool that is recommended by Python for installing Python packages. To see if you have ``pip`` installed, type into the terminal
@@ -138,15 +146,15 @@ Home-page: https://wiki.fysik.dtu.dk/ase
 Author: None
 Author-email: None
 License: LGPLv2.1+
-Location: /Users/geoffreyweal/Library/Python/3.7/lib/python/site-packages
+Location: /Users/geoffreyweal/Library/Python/3.11/lib/python/site-packages
 Requires: matplotlib, scipy, numpy
 Required-by: 
 ```
 
-Copy the ``Location`` line. If we remove the ``lib/python/site-packages`` bit and replace it with ``bin``, this gives us the location of useful ASE programs. The example below is for Python 3.7. 
+Copy the ``Location`` line. If we remove the ``lib/python/site-packages`` bit and replace it with ``bin``, this gives us the location of useful ASE programs. The example below is for Python 3.11. 
 
 ```bash
-/Users/geoffreyweal/Library/Python/3.7/bin
+/Users/geoffreyweal/Library/Python/3.11/bin
 ```
 
 Next, add this to your ``~/.bashrc`` file as below:
@@ -154,7 +162,7 @@ Next, add this to your ``~/.bashrc`` file as below:
 ```bash
 ############################################################
 # For ASE
-export PATH=/Users/geoffreyweal/Library/Python/3.7/bin:$PATH
+export PATH=/Users/geoffreyweal/Library/Python/3.11/bin:$PATH
 ############################################################
 ```
 
@@ -243,7 +251,6 @@ echo '
 # Used for the ReJig Program
 export PATH_TO_ReJig="'$PWD'/ReJig" 
 export PYTHONPATH="$PATH_TO_ReJig":$PYTHONPATH
-export PATH="$PATH_TO_ReJig"/bin:$PATH
 #############################################
 ' >> ~/.bashrc
 ```
@@ -260,13 +267,22 @@ Finally, source your ``~/.bashrc`` file by typing the following into the termina
 source ~/.bashrc
 ```
 
-Once you have run ``source ~/.bashrc``, the ReJig program should be all ready to go! You can check this by typing the following into the terminal:
+Once you have run ``source ~/.bashrc``, the ReJig python package is on your ``PYTHONPATH``, so you can ``import ReJig`` from your own scripts.
+
+That does not give you the ``rejig`` terminal command. ``rejig`` is generated when the package is installed, rather than shipped as a file inside the repository, so a cloned copy alone does not provide it. To create it from your clone, run an editable install from inside the ReJig folder:
 
 ```bash
-which ReJig
+cd "$PATH_TO_ReJig"
+pip3 install --upgrade --user -e .
 ```
 
-This should give you the path to the ReJig program. If the terminal tells you it can not find this program, check that the path you gave for ``PATH_TO_ReJig`` is the correct path to the ReJig folder. 
+You can then check that everything is in place by typing the following into the terminal:
+
+```bash
+which rejig
+```
+
+This should give you the path to the ``rejig`` command. If the terminal tells you it can not find it, check that the editable install above completed, and that the path you gave for ``PATH_TO_ReJig`` is the correct path to the ReJig folder. 
 
 
 #### Summary of ``~/.bashrc`` input
@@ -278,7 +294,6 @@ You want to have the following in your ``~/.bashrc``:
 # Used for the ReJig Program
 export PATH_TO_ReJig="<Path_to_ReJig>" 
 export PYTHONPATH="$PATH_TO_ReJig":$PYTHONPATH
-export PATH="$PATH_TO_ReJig"/bin:$PATH
 #############################################
 ```
 
