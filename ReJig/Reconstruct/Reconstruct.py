@@ -123,7 +123,7 @@ def Run_method(rejig_dirpath='rejigged_crystals', process_all_crystals=False):
 		crystal.set_pbc(True)
 
 		# Seventeenth, get the graph of the crystal.
-		crystal, crystal_graph = obtain_graph(crystal,name='crystal')
+		crystal_graph = obtain_graph(crystal,name='crystal')
 
 		# Eighteenth, get the molecules and the graphs associated with each molecule in the crystal.
 		molecules, molecule_graphs, SolventsList, symmetry_operations, cell = process_crystal(crystal,crystal_graph=crystal_graph,take_shortest_distance=True,return_list=False,logger=None,print_progress=False)

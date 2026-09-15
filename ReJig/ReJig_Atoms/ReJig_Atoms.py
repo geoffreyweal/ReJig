@@ -86,7 +86,7 @@ def ReJig_Atoms(filepath, calc_parameters, submission_information, rejig_neighbo
 	crystal.set_pbc(True)
 
 	# Seventh, get the graph of the crystal.
-	crystal, crystal_graph = obtain_graph(crystal,name='crystal')
+	crystal_graph = obtain_graph(crystal,name='crystal')
 
 	# Eighth, get the molecules and the graphs associated with each molecule in the crystal.
 	molecules, molecule_graphs, SolventsList, symmetry_operations, cell = process_crystal(crystal,crystal_graph=crystal_graph,take_shortest_distance=True,return_list=False,logger=None)
